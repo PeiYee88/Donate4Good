@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25vh;
+    padding: 15%  30% 15% 30%;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form {
+    gap: 20px;
+}
