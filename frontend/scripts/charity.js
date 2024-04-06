@@ -6,11 +6,9 @@ var check_box_input = document.getElementsByClassName("form-check-input");
 var check_box_label = document.getElementsByClassName("form-check-label");
 
 submit.addEventListener("click", async (event) => {
-    alert("J");
     event.preventDefault()
-    var [check_box, charity, funds] = getFormInput();
+    var [_, charity, funds] = getFormInput();
     handleInvalidInput(charity, funds);
-    alert(check_box.length);
     handleAdd();
 
 });
@@ -23,10 +21,6 @@ const getFormInput = () => {
         }
     }
     return [check_box, charity.value, funds.value];
-}
-
-const getCheckBoxInput = () =>{
-    return;
 }
 
 const handleInvalidInput = (charity, funds) => {
@@ -45,9 +39,7 @@ const handleAdd = async () => {
     const body = {
         name: charity,
         funds: funds,
-        food: true,
-        clothing: true,
-        stationeries: true
+        items: check_box,
     }
     await axios.post('http://localhost:3001/api', body).then((res) => {
         alert("Question submitted");

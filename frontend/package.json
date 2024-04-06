@@ -11,6 +11,7 @@
   "author": "Melissa Cheng",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.8",
     "http-server": "^14.1.1"
   }
 }

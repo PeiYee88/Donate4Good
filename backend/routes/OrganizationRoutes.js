@@ -11,11 +11,10 @@ router.post("/", async (req, res) => {
 
     try {
         await client.connect();
-        const database = client.db('Donate4Good');
-        const collection = database.collection('organization');
-        // Insert data into MongoDB
+        const database = client.db('Organization');
+        const collection = database.collection('organizations');
         const result = await collection.insertMany([
-            { name: "11", funds: 1, food: true, clothing: true, stationeries: true }
+            { name: req.body.name, funds: req.body.funds, items: req.body.items }
         ]);
 
         res.status(201).send({

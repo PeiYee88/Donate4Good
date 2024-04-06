@@ -6,7 +6,7 @@ const connect = () => {
 
     mongoose.connect("mongodb+srv://melissacheng15:melissacheng15@donate4good.hkncjwe.mongodb.net/?retryWrites=true&w=majority&appName=Donate4Good")
     .then(() => {
-        console.log("MongoDB Srarted");
+        console.log("MongoDB Started");
     })
     .catch((error) =>  console.log("Error", error));
 };
