@@ -1,18 +1,22 @@
+import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 var submit = document.getElementById("submit");
 var charity = document.getElementById("organization-name");
 var funds = document.getElementById("funds-needed");
 var check_box_input = document.getElementsByClassName("form-check-input");
 var check_box_label = document.getElementsByClassName("form-check-label");
 
-submit.addEventListener("click", () => {
+submit.addEventListener("click", async (event) => {
+    alert("J");
+    event.preventDefault()
     var [check_box, charity, funds] = getFormInput();
     handleInvalidInput(charity, funds);
     alert(check_box.length);
+    handleAdd();
 
 });
 
 const getFormInput = () => {
-    check_box = []
+    var check_box = []
     for (var i = 0, j = 0; i < check_box_input.length; i++) {
         if (check_box_input[i].checked) {
             check_box[j++] = check_box_label[i].innerHTML;
@@ -21,7 +25,7 @@ const getFormInput = () => {
     return [check_box, charity.value, funds.value];
 }
 
-const getCheckBoxInput = () => {
+const getCheckBoxInput = () =>{
     return;
 }
 
@@ -34,4 +38,19 @@ const handleInvalidInput = (charity, funds) => {
         alert("Please input number");
         return;
     }
+}
+
+const handleAdd = async () => {
+    var [check_box, charity, funds] = getFormInput();
+    const body = {
+        name: charity,
+        funds: funds,
+        food: true,
+        clothing: true,
+        stationeries: true
+    }
+    await axios.post('http://localhost:3001/api', body).then((res) => {
+        alert("Question submitted");
+    })
+
 }

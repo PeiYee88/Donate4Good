@@ -1,5 +1,6 @@
+// import {getCount} from "backend/mongodb.js";
 document.addEventListener("DOMContentLoaded", () => {
-    var numberOfCards = 3; 
+    var numberOfCards = 2; 
     
     var cardContainer = document.getElementById('cardContainer');
     for (var i = 0; i < numberOfCards; i++) {
@@ -7,3 +8,4 @@ document.addEventListener("DOMContentLoaded", () => {
         cardContainer.appendChild(cardComponent);
     }  
 });
+
